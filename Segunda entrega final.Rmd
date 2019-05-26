@@ -91,7 +91,7 @@ N° |  Variables  |  Relación con preguntas  |  Tipo    |   Subtipo de variable
 1 | Año | 1,5 | Cuantitativa | Discreta
 2 | Departamentos | 2,7 | Cualitativa | Nominal
 3 | Tasa de Mortalidad | 3,14,15 | Cuantitativa | Continua
-4 | Región | 4,12,13 | Cualitativa | Nominal
+4 | Región | 12,13 | Cualitativa | Nominal
 5 | Tasa de incidencia | 5 | Cuantitativa | Continua
 6 | Presupuesto invertido | 6,7,8,10,11,13,16 |  Cuantitativa | Discreta
 7 | Número de casos de TBC | 1 | Cuantitativa | Discreta
@@ -212,7 +212,7 @@ legend(2012,4,legend=c("Tasa promedio","Aumento porcentual en 6 años"),col=c("b
 
 <p style="text-align: justify;">Encontramos la variación porcentual entre el 2012 y 2018 `(mean(tasa18)-mean(tasa12))/mean(tasa12)*100` y lo dividimos entre 6 y obtenemos **`r format (round((mean(tasa18)-mean(tasa12))/mean(tasa12)*100/6,2))`%**; aproximadamente la tasa de mortalidad promedio en Perú **ha aumentado 1%** por año.</p> 
 
-**- ¿Cuáles son las zonas donde se es más propenso a contraer TBC?**
+**- ¿Cuáles son los departamentos donde se es más propenso a contraer TBC?**
 <p style="text-align: justify;">Teniendo los datos de los número de casos nuevos por departamentos desde 2012 hasta 2018 dentro de nuestros datos originales, procedemos a elaborar una tabla secundaria con los datos a emplear en esta pregunta. Se debe resaltar que en dicha tabla se observa los datos promedios, durante el intervalo de tiempo mencionado,por departamentos</p>
 
 
