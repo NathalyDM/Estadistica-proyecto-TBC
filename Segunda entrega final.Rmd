@@ -177,7 +177,7 @@ axis(1,at=1:25,labels = departamentos1,las=3,cex.axis=0.7)
 
 ```
 
-<p style="text-align: justify;">En el Gráfico N°2 podemos observar la media de como se han distribuido los presupuestos en el periodo  de 2012 y 2018; de lo cual podemos encontrar que la media de menor presupuesto es de **`r format (min(datos5$Presupuesto.orientado2))`%** y corresponde a la región de **`r format (datos5$Departamentos2[which(datos5$Presupuesto.orientado2==min(Presupuesto.orientado2))])`%** soles, luego tenemos el departamento de mayor presupuesto invertido que es el de  **`r format (datos5$Departamentos2[which(datos5$Presupuesto.orientado2==max(Presupuesto.orientado2))])`%** con una media de  **`r format (max(datos5$Presupuesto.orientado2))`%** soles. </p> 
+<p style="text-align: justify;">En el Gráfico N°2 podemos observar la media de como se han distribuido los presupuestos en el periodo  de 2012 y 2018; de lo cual podemos encontrar que la media de menor presupuesto es de **`r format (min(datos5$Presupuesto.orientado2))`** y corresponde a la región de **`r format (datos5$Departamentos2[which(datos5$Presupuesto.orientado2==min(Presupuesto.orientado2))])`** soles, luego tenemos el departamento de mayor presupuesto invertido que es el de  **`r format (datos5$Departamentos2[which(datos5$Presupuesto.orientado2==max(Presupuesto.orientado2))])`** con una media de  **`r format (max(datos5$Presupuesto.orientado2))`** soles. </p> 
 
 
 **- ¿Cuál es el incremento de la tasa de mortalidad, debido a la TBC, entre el 2012 y 2018? **
@@ -336,6 +336,8 @@ legend((max(Presupuesto_millones)+min(Presupuesto_millones))/2,  40,legend=c(coe
 ```
 
 **-¿Los departamentos con menor presupuesto presentan una mayor o una menor cantidad de casos de TBC?**
+<p style="text-align: justify;">Para esta pregunta primero se analizarán los promedios de morbilidad y presupuesto en el periodo 2012 a 2018 para cada departamento. <\p>
+    
 ```{r}
 Departamentos<-datos$Departamento
 Morbilidad<-datos$Morbilidad
@@ -372,14 +374,14 @@ q2<-quantile(Morbilidad2)
 
 ```
 
-<p style="text-align: justify;">Para seleccionar los departamentos de menor presupuesto en el Gráfico N°13, se seleccionaran los datos que se encontraban por debajo del tercer cuartil de los datos, esto se logró utilizando el código `quantile(P)` que permite hallar los cuartiles de P. De esa forma se identifica el primer cuartil y se arma una tambla con los datos que tienen un presupuesto menor al del primer cuartil que es de **5125517 soles**</p> 
+<p style="text-align: justify;">Luego, para identificar los departamentos de menor presupuesto en el Gráfico N°13, se seleccionaran los datos que se encontraban por debajo del primer cuartil de los datos, esto se logró utilizando el código `quantile(P)` que permite hallar los cuartiles de P. De esa forma se identifica el primer cuartil y se arma una tabla con los datos que tienen un presupuesto menor al del primer cuartil que es de **5125517 soles**</p> 
 ```{r}
 dato6<-datos5$Departamentos2[which(datos5$Presupuesto.orientado2<=5125517)]
 morb3<-datos5$Morbilidad2[which(datos5$Presupuesto.orientado2<=5125517)]
 ```
 <p style="text-align: justify;">A la vez, se determinó que las regiones con media de presupuesto inferior al primer cuartil corresponde a los departamentos de **`r format (datos5$Departamentos2[which(datos5$Presupuesto.orientado2<=5125517)])`**</p> 
 
-Esta última observación puede ser verificada por el Gráfico N°14, observando los datos de morbilidad correspondientes a estos departamentos.
+Ahora en el Gráfico N°14, se observan los datos de morbilidad correspondientes a estos departamentos.
 ```{r}
 barplot(morb3,main="Gráfico N°14: Morbilidad de regiones con bajo presupuesto"
         ,ylab = "Morbilidad"
@@ -398,7 +400,7 @@ legend(2,1000,legend=c("primer cuartil\nde morbilidad"),col=c("red"),lwd=1,cex=0
 legend(4,1000,legend=c("media de morbilidad de regiones\n con menor presupuesto"),col=c("green"),lwd=1,cex=0.8)
 ```
 
-<p style="text-align: justify;">En este caso tambié se hace guía de la mendiana y el primer cuartil de los datos de morbilidad.</p> 
+<p style="text-align: justify;">En este caso también se hace guía de la mendiana y el primer cuartil de los datos de morbilidad.</p> 
 <p style="text-align: justify;">De las 7 regiones que presentan un menor presupuesto invertido por región, se identifica que 5 de ellos se presentan también por debajo de primer cuartil y solo la región de Ucayali supera la mediana de los datos de morbilidad, permitiendo afirmar que los departamento con menor presupuesto son los que menor cantidad de casos de TBC presentan.</p> 
 
 **- ¿Cómo se relaciona el presupuesto invertido para la prevención con el número de casos nuevos de TBC?**
