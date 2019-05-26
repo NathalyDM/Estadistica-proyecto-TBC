@@ -263,17 +263,6 @@ barplot(casos,main="Gráfico N°4: Tasa de mortalidad desde el 2012 hasta el 201
 <p style="text-align: justify;">Como podemos observar a partir de los datos representados en el Gráfico N°4 de barras, la tasa de mortalidad disminuyó de manera constante durante los primeros 6 años; mientras que para el 2018 esta disminuyó con una pendiente más pronunciada; es decir, la tasa de mortalidad disminuyó de una manera más eficiente. Esto se puede dar debido a diversos factores que se analizarán más adelante, como por ejemplo, el presupuesto invertido por diversas institituciones.</p> 
 
 ```{r}
-x<-0
-morbilidad_porr_anho<-c()
-anhos<-c()
-for (i in 2012:2018){
-       x<-x+1
-       morbilidad_porr_anho[x]<-sum(datos$Morbilidad[datos$Año==i])
-       anhos[x]<-i
-}
-casos <- morbilidad_porr_anho/1000
-names(casos)<-anhos
-
 barplot(casos
         ,main="Gráfico N°5: N° de casos de TBC desde el 2012 hasta el 2018 en el Perú"
         ,ylab ="N* de casos de TBC (miles de personas)"
