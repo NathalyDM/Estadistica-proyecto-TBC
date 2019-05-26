@@ -177,7 +177,7 @@ axis(1,at=1:25,labels = departamentos1,las=3,cex.axis=0.7)
 
 ```
 
-<p style="text-align: justify;">En el Gráfico N°2 podemos observar la media de como se han distribuido los presupuestos en el periodo  de 2012 y 2018; de lo cual podemos encontrar que la media de menor presupuesto es de **`r format (min(datos5$Presupuesto.orientado2))`** y corresponde a la región de **`r format (datos5$Departamentos2[which(datos5$Presupuesto.orientado2==min(Presupuesto.orientado2))])`** soles, luego tenemos el departamento de mayor presupuesto invertido que es el de  **`r format (datos5$Departamentos2[which(datos5$Presupuesto.orientado2==max(Presupuesto.orientado2))])`** con una media de  **`r format (max(datos5$Presupuesto.orientado2))`** soles. </p> 
+<p style="text-align: justify;">En el Gráfico N°2 podemos observar la media de como se han distribuido los presupuestos en el periodo  de 2012 y 2018; de lo cual podemos encontrar que la media de menor presupuesto es de **`r format (min(datos5$Presupuesto.orientado2))`** soles y corresponde a la región de **`r format (datos5$Departamentos2[which(datos5$Presupuesto.orientado2==min(Presupuesto.orientado2))])`** soles, luego tenemos el departamento de mayor presupuesto invertido que es el de  **`r format (datos5$Departamentos2[which(datos5$Presupuesto.orientado2==max(Presupuesto.orientado2))])`** con una media de  **`r format (max(datos5$Presupuesto.orientado2))`** soles. </p> 
 
 
 **- ¿Cuál es el incremento de la tasa de mortalidad, debido a la TBC, entre el 2012 y 2018? **
