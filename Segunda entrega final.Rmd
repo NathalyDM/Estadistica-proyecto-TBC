@@ -182,19 +182,16 @@ axis(1,at=1:25,labels = departamentos1,las=3,cex.axis=0.7)
 
 **- ¿Cuál es el incremento de la tasa de mortalidad, debido a la TBC, entre el 2012 y 2018? **
 ```{r}
-tasa12 <- datos$Tasa.de.mortalidad[which(datos$Año==2012)]
-tasa13 <- datos$Tasa.de.mortalidad[which(datos$Año==2013)]
-tasa14 <- datos$Tasa.de.mortalidad[which(datos$Año==2014)]
-tasa15 <- datos$Tasa.de.mortalidad[which(datos$Año==2015)]
-tasa16 <- datos$Tasa.de.mortalidad[which(datos$Año==2016)]
-tasa17 <- datos$Tasa.de.mortalidad[which(datos$Año==2017)]
-tasa18 <- datos$Tasa.de.mortalidad[which(datos$Año==2018)]
-Vs=(seq(from=mean(tasa12),to=mean(tasa18),by=(mean(tasa18)-mean(tasa12))/6))
-length(Vs)
-length(2012:2018) 
-tasasprom <- c(mean(tasa12),mean(tasa13),mean(tasa14),mean(tasa15),mean(tasa16),mean(tasa17),mean(tasa18))
-length(tasasprom)
-plot(y=tasasprom,x = 2012:2018
+z<-0
+tasademortalidadprom<-c()
+años<-c()
+for(i in 2012:2018){
+  z<-z+1
+  tasademortalidadprom[z]<- mean(datos$Tasa.de.mortalidad[datos$Año==i])
+  años[z]<-i
+}
+Vs=(seq(from=mean(tasademortalidadprom[1]),to=mean(tasademortalidadprom[7]),by=(mean(tasademortalidadprom[1])-mean(tasademortalidadprome[7]))/6))
+plot(y=tasademortalidadprom,x = 2012:2018
      ,main = "Gráfico N°3: Media de las tasas de mortalidad en el Perú entre 2012-2018"
      ,xlab = "Año"
      ,ylab = "Tasa promedio"
@@ -243,14 +240,14 @@ Pasco presenta el menor número de caso nuevos **`r format (min(Numero.de.casos.
 
 ```{r}
 z<-0
-mortalidad<-c()
+tasademortalidad<-c()
 años<-c()
 for(i in 2012:2018){
   z<-z+1
-  mortalidad[z]<- sum(datos$Tasa.de.mortalidad[datos$Año==i])
+  tasademortalidad[z]<- sum(datos$Tasa.de.mortalidad[datos$Año==i])
   años[z]<-i
 }
-cases<-mortalidad/1000
+cases<-tasademortalidad
 names(cases)<-años
 barplot(casos,main="Gráfico N°4: Tasa de mortalidad desde el 2012 hasta el 2018 en el Perú"
         ,ylab ="Tasa de mortalidad"
