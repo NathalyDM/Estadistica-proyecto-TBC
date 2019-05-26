@@ -144,7 +144,7 @@ barplot(casos,main="Gráfico N°1: Número de casos de TBC desde el 2012 hasta e
 
 **- Qué departamento tuvo el presupuesto más bajo y cuál el más alto para el control y la prevención de TBC entre el 2012 y el 2018?**
 
-Para determinar el presupuesto mas bajo y alto en el periodo a analizar se utilizarán la media con respecto a la distribución anual 
+Para determinar el presupuesto mas bajo y alto en el periodo a analizar se utilizarán la media con respecto a la distribución en los años 2012 a 2018 
 
 ```{r}
 departamentos1<-unique(datos$Departamento)
@@ -166,7 +166,7 @@ P<-Presupuesto.orientado2/1000000
 
 Departamentos2<-Departamentos[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25)]
 datos5<-data.frame(Departamentos2,Morbilidad2,Presupuesto.orientado2)
-barplot(P,main="Gráfico N°2: Presupuesto invertido por región"
+barplot(P,main="Gráfico N°2: Presupuesto invertido por Departamento"
         ,ylab = "Presupuesto en millones de soles"
         ,width = 0.85
         ,col = "skyblue"
@@ -177,7 +177,7 @@ axis(1,at=1:25,labels = departamentos1,las=3,cex.axis=0.7)
 
 ```
 
-<p style="text-align: justify;">En el Gráfico N°2 podemos observar la media de como se han distribuido los presupuestos en el periodo  de 2012 y 2018; de lo cual podemos encontrar que la media de menor presupuesto es de **`r format (min(datos5$Presupuesto.orientado2))`** soles y corresponde a la región de **`r format (datos5$Departamentos2[which(datos5$Presupuesto.orientado2==min(Presupuesto.orientado2))])`** soles, luego tenemos el departamento de mayor presupuesto invertido que es el de  **`r format (datos5$Departamentos2[which(datos5$Presupuesto.orientado2==max(Presupuesto.orientado2))])`** con una media de  **`r format (max(datos5$Presupuesto.orientado2))`** soles. </p> 
+<p style="text-align: justify;">En el Gráfico N°2 podemos observar la media de como se han distribuido los presupuestos en el periodo  de 2012 y 2018; de lo cual podemos encontrar que la media de menor presupuesto es de **`r format (min(datos5$Presupuesto.orientado2))`** soles y corresponde al departamento de **`r format (datos5$Departamentos2[which(datos5$Presupuesto.orientado2==min(Presupuesto.orientado2))])`** soles, luego tenemos el departamento de mayor presupuesto invertido que es el de  **`r format (datos5$Departamentos2[which(datos5$Presupuesto.orientado2==max(Presupuesto.orientado2))])`** con una media de  **`r format (max(datos5$Presupuesto.orientado2))`** soles. </p> 
 
 
 **- ¿Cuál es el incremento de la tasa de mortalidad, debido a la TBC, entre el 2012 y 2018? **
@@ -354,14 +354,14 @@ Presupuesto.orientado2<-c(Presupuesto.orientado2,aux2)
 }
 P<-Presupuesto.orientado2/1000000
 Departamentos2<-Departamentos[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25)]
-barplot(Morbilidad2,main="Gráfico N°12: Morbilidad de TBC por regiones"
+barplot(Morbilidad2,main="Gráfico N°12: Morbilidad de TBC por departamento"
         ,ylab = "Morbilidad de TBC"
         ,width = 0.85
         ,col = "skyblue"
         ,ylim =c(0,12000))
 axis(1,at=1:25,labels = departamentos1,las=3,cex.axis=0.7)
 abline(h=201,col="red",lwd=1)
-barplot(P,main="Gráfico N°13: Presupuesto invertido por región"
+barplot(P,main="Gráfico N°13: Presupuesto invertido por departamento"
         ,ylab = "Presupuesto en millones de soles"
         ,width = 0.85
         ,col = "skyblue"
@@ -379,11 +379,11 @@ q2<-quantile(Morbilidad2)
 dato6<-datos5$Departamentos2[which(datos5$Presupuesto.orientado2<=5125517)]
 morb3<-datos5$Morbilidad2[which(datos5$Presupuesto.orientado2<=5125517)]
 ```
-<p style="text-align: justify;">A la vez, se determinó que las regiones con media de presupuesto inferior al primer cuartil corresponde a los departamentos de **`r format (datos5$Departamentos2[which(datos5$Presupuesto.orientado2<=5125517)])`**</p> 
+<p style="text-align: justify;">A la vez, se determinó que los departamentos con media de presupuesto inferior al primer cuartil corresponde a los departamentos de **`r format (datos5$Departamentos2[which(datos5$Presupuesto.orientado2<=5125517)])`**</p> 
 
 Ahora en el Gráfico N°14, se observan los datos de morbilidad correspondientes a estos departamentos.
 ```{r}
-barplot(morb3,main="Gráfico N°14: Morbilidad de regiones con bajo presupuesto"
+barplot(morb3,main="Gráfico N°14: Morbilidad de departamentos con bajo presupuesto"
         ,ylab = "Morbilidad"
         ,width = 0.85
         ,col = "skyblue"
@@ -397,11 +397,11 @@ abline(h=201,col="red",lwd=1)
 abline(h=mean(morb3),col="green",lwd=1)
 legend(0,1000,legend=c("mediana\nde morbilidad"),col=c("blue"),lwd=1,cex=0.8)
 legend(2,1000,legend=c("primer cuartil\nde morbilidad"),col=c("red"),lwd=1,cex=0.8)
-legend(4,1000,legend=c("media de morbilidad de regiones\n con menor presupuesto"),col=c("green"),lwd=1,cex=0.8)
+legend(4,1000,legend=c("media de morbilidad de departamentos\n con menor presupuesto"),col=c("green"),lwd=1,cex=0.8)
 ```
 
 <p style="text-align: justify;">En este caso también se hace guía de la mendiana y el primer cuartil de los datos de morbilidad.</p> 
-<p style="text-align: justify;">De las 7 regiones que presentan un menor presupuesto invertido por región, se identifica que 5 de ellos se presentan también por debajo de primer cuartil y solo la región de Ucayali supera la mediana de los datos de morbilidad, permitiendo afirmar que los departamento con menor presupuesto son los que menor cantidad de casos de TBC presentan.</p> 
+<p style="text-align: justify;">De los 7 departamentos que presentan un menor presupuesto invertido, se identifica que 5 de ellos se presentan también por debajo de primer cuartil y solo Ucayali supera la mediana de los datos de morbilidad, permitiendo afirmar que los departamento con menor presupuesto son los que menor cantidad de casos de TBC presentan.</p> 
 
 **- ¿Cómo se relaciona el presupuesto invertido para la prevención con el número de casos nuevos de TBC?**
 
