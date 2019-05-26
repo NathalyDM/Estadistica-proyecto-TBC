@@ -190,7 +190,7 @@ for(i in 2012:2018){
   tasademortalidadprom[z]<- mean(datos$Tasa.de.mortalidad[datos$Año==i])
   años[z]<-i
 }
-Vs=(seq(from=mean(tasademortalidadprom[1]),to=mean(tasademortalidadprom[7]),by=(mean(tasademortalidadprom[1])-mean(tasademortalidadprome[7]))/6))
+Vs=(seq(from=tasademortalidadprom[1],to=tasademortalidadprom[7],by=(tasademortalidadprom[7]-tasademortalidadprom[1])/6))
 plot(y=tasademortalidadprom,x = 2012:2018
      ,main = "Gráfico N°3: Media de las tasas de mortalidad en el Perú entre 2012-2018"
      ,xlab = "Año"
