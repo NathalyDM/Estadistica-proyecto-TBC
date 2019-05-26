@@ -33,9 +33,6 @@ output: html_document
 
 <p style="text-align: justify;">La inefectividad de su ejecución presupuestal nos hace preguntarnos ¿cuál es la lógica del presupuesto para la TBC en el Perú?, ¿a qué se deben estos bajos niveles de inversión efectiva?, y más importante aún ¿Cuál es la magnitud de las consecuencias que acarrea dicha inefectividad? Esta investigación pretende entender y responder a la problemática a través de un análisis estadístico de la gestión presupuestaria para la inversión de prevención y tratamiento del TBC por parte del estado en las distintas regiones y departamentos entre los años del 2012 y el 2018.</p> 
 
-
-</p>
-
 ###Objetivos:
 
 * ####Objetivo General:
@@ -48,11 +45,22 @@ output: html_document
   
     *-**Sala situacional:** Descripción de la situación mediante la tasa de incidencia, mortalidad, morbilidad, etc.*
 
-###Población Objetivo:
-Personas que presentan casos de TBC en Perú
+###Antecendentes:
+<p style="text-align: justify;">Actualmente no existe ningún estudio sobre la tuberculosis y el prespuesto invertido para su prevención y control en el Perú, por lo que nuestro estudio sería el primero en este aspecto.</p>
 
-###Muestra:
-Datos recolectados de la página oficial del Minsa.
+<p style="text-align: justify;">Por un lado, hemos encontrado algunas referencias que nos ayudarán a plantear nuestro problema para lograr nuestros objetivos. El primero de ellos es un libro titulado "La Efectividad de la inversión pública a nivel regional y local durante el periodo 2009 al 2014", este documento trata de manera descriptiva (sin usar algún estudio estadístico) los indicadores de inversión pública y su impacto en las principales áreas públicas: educación, saneamiento, transporte y salud.</p>
+
+<p style="text-align: justify;"> Por otro lado, la fuente más cercana a nuestro estudio es un artículo llamado "Equidad e inversión en salud pública de la República del Perú", en este artículo se comparan resultados específicos como la tasa de mortalidad y el presupuesto invertido en un determinado año, respondiendo de esta manera a preguntas (mayormente descriptivas). La ventaja de tener a esta fuente como antecente nos facilitarpa la  elaboración de hipotesis sobre comportamientos que observemos a lo largo del estudio.</p>
+
+###Población Objetivo:
+La población objetivo se encuentra conformada por aquellas personas que presentan casos de TBC en el Perú.
+
+###Muestra y recopilación de datos:
+<p style="text-align: justify;">- La mayoría de datos serán recopilados directamente del Portal de la DPCTB - Dirección de Prevención y Control de Tuberculosis, bajo la direccion del MINSA. El enlace a dicha base de datos es el siguiente: <a href=”http://www.tuberculosis.minsa.gob.pe/DashboardDPCTB/PerfilTB.aspx”>anchor text</a>. Así mismo, las variables a la que corresponden estos datos serían las tasas de mortalidad, las tasas de inicidencia,  morbilidad, la tasa de éxito y el número de casos de TBC y de casos nuevos. Por último, las referencias de esta fuente se encuentran en la bibliografía del presente documento.</p>
+
+<p style="text-align: justify;">- Nuestra segunda fuente de datos está conformada por el Ministerio de Economía y Finanzas, específicamente por la sección de Presupuesto para el sector Público y los Proyectos de Presupuestos Anuales (Anexo 8). En enlace para esta fuente es <a href=”https://www.mef.gob.pe/es/presupuesto-del-sector-publico/proyecto-de-presupuesto”>anchor text</a> y como la fuente anterior, su correcta cita bibliográfica se encuentra en la parte inferior del documento.</p>
+
+<p style="text-align: justify;">- Por último, nuestra tercera fuente de datos la conforma el Instituto de Estadística e Informática., específicamente la sección de Condiciones Físicas. El link correspondiente a este punto es  <a href=”https://www.inei.gob.pe/estadisticas/indice-tematico/a1-condiciones-fisicas-10234/>anchor text</a> y la cita correspondiente está en la bibliografía del documento.</p>
 
 ##Preguntas planteadas
   
@@ -205,6 +213,32 @@ legend(2012,4,legend=c("Tasa promedio","Aumento porcentual en 6 años"),col=c("b
 <p style="text-align: justify;">Encontramos la variación porcentual entre el 2012 y 2018 `(mean(tasa18)-mean(tasa12))/mean(tasa12)*100` y lo dividimos entre 6 y obtenemos **`r format (round((mean(tasa18)-mean(tasa12))/mean(tasa12)*100/6,2))`%**; aproximadamente la tasa de mortalidad promedio en Perú **ha aumentado 1%** por año.</p> 
 
 **- ¿Cuáles son las zonas donde se es más propenso a contraer TBC?**
+<p style="text-align: justify;">Teniendo los datos de los número de casos nuevos por departamentos desde 2012 hasta 2018 dentro de nuestros datos originales, procedemos a elaborar una tabla secundaria con los datos a emplear en esta pregunta. Se debe resaltar que en dicha tabla se observa los datos promedios, durante el intervalo de tiempo mencionado,por departamentos</p>
+
+
+```{r}
+Departamentos <-datos[,"Departamento"]
+Numero.de.casos.nuevos<-datos[,"Numero.de.casos.Nuevos"]
+
+datos2<-data.frame(Departamentos,Numero.de.casos.nuevos)
+Numero.de.casos.nuevos2<-c()
+for (i in 1:25)
+{
+aux<-sum(datos2$Numero.de.casos.nuevos[which(datos2$Departamentos==Departamentos[c(i)])])/7
+Numero.de.casos.nuevos2<-c(Numero.de.casos.nuevos2,aux)
+}
+Departamentos2<-Departamentos[c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25)]
+datos3<-data.frame(Departamentos2,Numero.de.casos.nuevos2)
+
+dep<-c("Amazonas","Áncash","Apurímac","Arequipa","Ayacucho","Cajamarca","Callao","Cusco","Huancavelica","Huánuco","Ica","Junín","La Libertad","Lambayeque","Lima","Loreto","Madre de Dios","Moquegua","Pasco","Piura","Puno","San Martín","Tacna","Tumbes","Ucayali")
+
+barplot(datos3$Numero.de.casos.nuevos2,main = "Nº de casos nuevos de TBC por departamento",width=0.85 ,ylab =  "Número de casos nuevos de TBC", col=rainbow(25))
+axis(1,at=1:25,labels = dep,las=3,cex.axis=0.7)
+```
+
+<p style="text-align: justify;">El gráfico de barras muestra como el departamento con mayor número de casos nuevos por año es Lima con un **`r format (max(Numero.de.casos.nuevos2))`**, mientras que 
+Pasco presenta el menor número de caso nuevos **`r format (min(Numero.de.casos.nuevos2))`**.Como se aprecia existe una gran diferencia entre la cifra de Lima y los demas departamentos. Por ejemplo, el segundo departamento con mayor número de caso, Loreto, difere del primero en un aproximado de 6691. Ante todo lo mencionado se señala que las personas de la zona de Lima son mas propensas a contraer TBC en el Perú.</p>
+
 **- ¿Qué años tuvieron las tres tasas de mortalidad e incidencia por TBC más bajas a nivel nacional?**
 
 ```{r}
@@ -422,8 +456,6 @@ Ministerio de Salud (2018). Dashboard del Departamento de Prevención y Control 
 Organización Mundial de la Salud (2018, 19 septiembre). Tuberculosis. Recuperado 19 abril, 2019, de https://www.who.int/es/news-room/fact-sheets/detail/tuberculosis
 
 Vargas, J. (2011). Equidad e inversión en salud pública en la República. Revista Cubana de Salud Pública , 452-461 . Recuperado 19 abril, 2019 de http://scielo.sld.cu/pdf/rcsp/v37n4/spu09411.pdf
-
-
 
 
 
