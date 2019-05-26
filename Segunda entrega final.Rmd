@@ -299,18 +299,16 @@ legend(25, 10,legend=c(coeficiente_es),cex=0.8)
 <p style="text-align: justify;">Por otro lado, si esta tendencia es evaluada por cada departamento, obtenemos que 10 departamentos (Apurimac, La Libertad, Loreto, San Martín, Ucayali, Cerro de Pasco, Tacna, Loreto, Amazonas, Piura y Huánunco) poseen un coeficiente de correlación mayor al 50%, lo cual podría sugerir que en determinados departamentos existe alguna relación entre el presupuesto invertido y la tasa de mortalidad.</p> 
 
 ```{r}
-
-departamentos<-c(names(table(datos$Departamento)))
 par(mfrow=c(1,2))
 x<-6
-for (i in 1:length(departamentos)){
-Presupuesto_millones<-datos$Presupuesto.para.el.programa.orientado.a.disminuir.la.incidencia.de.TBC.y.VIH[datos$Departamento==departamentos[i]]/1000000
-tasa_mortalidad<-datos$Tasa.de.mortalidad[datos$Departamento==departamentos[i]]
+for (i in 1:length(departamentos1)){
+Presupuesto_millones<-datos$Presupuesto.para.el.programa.orientado.a.disminuir.la.incidencia.de.TBC.y.VIH[datos$Departamento==departamentos1[i]]/1000000
+tasa_mortalidad<-datos$Tasa.de.mortalidad[datos$Departamento==departamentos1[i]]
 cor(Presupuesto_millones, tasa_mortalidad)
 coeficiente<-round(cor(Presupuesto_millones, tasa_mortalidad),2)
 if(abs(coeficiente)>=0.5){
 x<-x+1
-nombre_depa<-c(paste("Gráfico N°:",toString(x),"Presupuesto vs Tasa",sep = " "),paste(" de mortalidad en\t", toString(departamentos[i]),sep = " "))
+nombre_depa<-c(paste("Gráfico N°:",toString(x),"Presupuesto vs Tasa",sep = " "),paste(" de mortalidad en\t", toString(departamentos1[i]),sep = " "))
 plot(Presupuesto_millones 
      ,tasa_mortalidad,ylab="Tasa de mortalidad por TBC (%)"
      ,xlab="Presupuesto (millones de soles)"
