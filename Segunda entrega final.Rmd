@@ -239,20 +239,13 @@ Pasco presenta el menor número de caso nuevos **`r format (min(Numero.de.casos.
 **- ¿Qué años tuvieron las tres tasas de mortalidad e incidencia por TBC más bajas a nivel nacional?**
 
 ```{r}
-z<-0
-tasademortalidad<-c()
-años<-c()
-for(i in 2012:2018){
-  z<-z+1
-  tasademortalidad[z]<- sum(datos$Tasa.de.mortalidad[datos$Año==i])
-  años[z]<-i
-}
-cases<-tasademortalidad
+
+cases<-tasademortalidadprom
 names(cases)<-años
-barplot(casos,main="Gráfico N°4: Tasa de mortalidad desde el 2012 hasta el 2018 en el Perú"
-        ,ylab ="Tasa de mortalidad"
+barplot(cases,main="Gráfico N°4: Tasa de mortalidad promedio desde el 2012 hasta el 2018 en el Perú"
+        ,ylab ="Tasa de mortalidad promedio"
         ,xlab ="Años"
-        ,ylim=c(0,30)
+        ,ylim=c(0,4)
         ,cex.main=1
         ,cex.lab=0.8
         ,col = "#1234F8")
@@ -260,6 +253,8 @@ barplot(casos,main="Gráfico N°4: Tasa de mortalidad desde el 2012 hasta el 201
 <p style="text-align: justify;">Como podemos observar a partir de los datos representados en el Gráfico N°4 de barras, la tasa de mortalidad disminuyó de manera constante durante los primeros 6 años; mientras que para el 2018 esta disminuyó con una pendiente más pronunciada; es decir, la tasa de mortalidad disminuyó de una manera más eficiente. Esto se puede dar debido a diversos factores que se analizarán más adelante, como por ejemplo, el presupuesto invertido por diversas institituciones.</p> 
 
 ```{r}
+
+casos <- morbilidad_porr_anho/1000
 barplot(casos
         ,main="Gráfico N°5: N° de casos de TBC desde el 2012 hasta el 2018 en el Perú"
         ,ylab ="N* de casos de TBC (miles de personas)"
