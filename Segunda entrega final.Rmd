@@ -227,7 +227,7 @@ datos3<-data.frame(Departamentos2,Numero.de.casos.nuevos2)
 
 dep<-c("Amazonas","Áncash","Apurímac","Arequipa","Ayacucho","Cajamarca","Callao","Cusco","Huancavelica","Huánuco","Ica","Junín","La Libertad","Lambayeque","Lima","Loreto","Madre de Dios","Moquegua","Pasco","Piura","Puno","San Martín","Tacna","Tumbes","Ucayali")
 
-barplot(datos3$Numero.de.casos.nuevos2,main = "Nº de casos nuevos de TBC por departamento",width=0.85 ,ylab =  "Número de casos nuevos de TBC", col=rainbow(25))
+barplot(datos3$Numero.de.casos.nuevos2,main = "Gráfico N°4: Nº de casos nuevos de TBC por departamento",width=0.85 ,ylab =  "Número de casos nuevos de TBC", col=rainbow(25))
 axis(1,at=1:25,labels = dep,las=3,cex.axis=0.7)
 ```
 
@@ -240,7 +240,7 @@ Pasco presenta el menor número de caso nuevos **`r format (min(Numero.de.casos.
 
 cases<-tasademortalidadprom
 names(cases)<-años
-barplot(cases,main="Gráfico N°4: Tasa de mortalidad promedio desde el 2012 hasta el 2018 en el Perú"
+barplot(cases,main="Gráfico N°5: Tasa de mortalidad promedio desde el 2012 hasta el 2018 en el Perú"
         ,ylab ="Tasa de mortalidad promedio"
         ,xlab ="Años"
         ,ylim=c(0,4)
@@ -254,7 +254,7 @@ barplot(cases,main="Gráfico N°4: Tasa de mortalidad promedio desde el 2012 has
 
 casos <- morbilidad_porr_anho/1000
 barplot(casos
-        ,main="Gráfico N°5: N° de casos de TBC desde el 2012 hasta el 2018 en el Perú"
+        ,main="Gráfico N°6: N° de casos de TBC desde el 2012 hasta el 2018 en el Perú"
         ,ylab ="N* de casos de TBC (miles de personas)"
         ,xlab ="Años"
         ,cex.main=1
@@ -274,7 +274,7 @@ barplot(casos
 Presupuesto_millones<-datos$Presupuesto.para.el.programa.orientado.a.disminuir.la.incidencia.de.TBC.y.VIH/1000000
 tasa_mortalidad<-datos$Tasa.de.mortalidad
 plot(Presupuesto_millones,tasa_mortalidad 
-     ,main="Gráfico N°6: Presupuesto invertido vs tasa de mortalidad por TBC"
+     ,main="Gráfico N°7: Presupuesto invertido vs tasa de mortalidad por TBC"
      ,ylab="Tasa de mortalidad por TBC (%)"
      ,xlab="Presupuesto (millones de soles)"
      ,xlim=c(0,30))
@@ -289,7 +289,7 @@ legend(25, 10,legend=c(coeficiente_es),cex=0.8)
 
 ```{r}
 par(mfrow=c(1,2))
-x<-6
+x<-7
 for (i in 1:length(departamentos1)){
 Presupuesto_millones<-datos$Presupuesto.para.el.programa.orientado.a.disminuir.la.incidencia.de.TBC.y.VIH[datos$Departamento==departamentos1[i]]/1000000
 tasa_mortalidad<-datos$Tasa.de.mortalidad[datos$Departamento==departamentos1[i]]
