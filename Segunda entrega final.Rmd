@@ -132,7 +132,6 @@ names(casos)<-anhos
 barplot(casos,main="Gráfico N°1: Número de casos de TBC desde el 2012 hasta el 2018 en el Perú"
         ,ylab ="N* de casos de TBC (miles de personas)"
         ,xlab ="Años"
-        ,ylim=c(0,25)
         ,cex.main=1.25
         ,cex.lab=0.8
         ,col = "#6666FF"
@@ -259,7 +258,6 @@ barplot(casos
         ,main="Gráfico N°5: N° de casos de TBC desde el 2012 hasta el 2018 en el Perú"
         ,ylab ="N* de casos de TBC (miles de personas)"
         ,xlab ="Años"
-        ,ylim=c(0,30)
         ,cex.main=1
         ,cex.lab=0.8
         ,col = "#6666FF")
@@ -437,7 +435,4 @@ Ministerio de Salud (2018). Dashboard del Departamento de Prevención y Control 
 Organización Mundial de la Salud (2018, 19 septiembre). Tuberculosis. Recuperado 19 abril, 2019, de https://www.who.int/es/news-room/fact-sheets/detail/tuberculosis
 
 Vargas, J. (2011). Equidad e inversión en salud pública en la República. Revista Cubana de Salud Pública , 452-461 . Recuperado 19 abril, 2019 de http://scielo.sld.cu/pdf/rcsp/v37n4/spu09411.pdf
-
-
-
 
