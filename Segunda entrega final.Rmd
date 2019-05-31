@@ -143,7 +143,7 @@ barplot(casos,main="Gráfico N°1: Número de casos de TBC desde el 2012 hasta e
 
 **- Qué departamento tuvo el presupuesto más bajo y cuál el más alto para el control y la prevención de TBC entre el 2012 y el 2018?**
 
-Para determinar el presupuesto mas bajo y alto en el periodo a analizar se utilizarán la media con respecto a la distribución en los años 2012 a 2018 
+<p style="text-align: justify;">Para determinar el presupuesto mas bajo y alto en el periodo a analizar se utilizarán la media con respecto a la distribución en los años 2012 a 2018 </p> 
 
 ```{r}
 departamentos1<-unique(datos$Departamento)
@@ -246,11 +246,12 @@ barplot(cases,main="Gráfico N°5: Tasa de mortalidad promedio desde el 2012 has
         ,cex.lab=0.8
         ,col = "#1234F8")
 ```
-<p style="text-align: justify;">Como podemos observar a partir de los datos representados en el Gráfico N°5 de barras, la tasa de mortalidad disminuyó de manera constante durante los primeros 6 años; mientras que para el 2018 esta disminuyó con una pendiente más pronunciada; es decir, la tasa de mortalidad disminuyó de una manera más eficiente. Esto se puede dar debido a diversos factores que se analizarán más adelante, como por ejemplo, el presupuesto invertido por diversas institituciones.</p> 
+<p style="text-align: justify;">Como podemos observar a partir de los datos representados en el Gráfico N°5 de barras, la tasa de mortalidad disminuyó de manera constante durante los primeros 6 años; mientras que para el 2018 esta disminuyó con una pendiente más pronunciada; es decir, la tasa de mortalidad disminuyó de una manera más eficiente. Esto se puede dar debido a diversos factores que se analizarán más adelante, como por ejemplo, el presupuesto invertido por diversas instituciones.</p> 
 
 ```{r}
 
 casos <- morbilidad_porr_anho/1000
+names(casos)<-años
 barplot(casos
         ,main="Gráfico N°6: N° de casos de TBC desde el 2012 hasta el 2018 en el Perú"
         ,ylab ="N* de casos de TBC (miles de personas)"
@@ -311,7 +312,7 @@ legend((max(Presupuesto_millones_dep)+min(Presupuesto_millones_dep))/2,  40,lege
 ```
 
 **-¿Los departamentos con menor presupuesto presentan una mayor o una menor cantidad de casos de TBC?**
-<p style="text-align: justify;">Para esta pregunta primero se analizarán los promedios de morbilidad y presupuesto en el periodo 2012 a 2018 para cada departamento. <\p>
+<p style="text-align: justify;">Para esta pregunta primero se analizarán los promedios de morbilidad y presupuesto en el periodo 2012 a 2018 para cada departamento. </p>
     
 ```{r}
 Departamentos<-datos$Departamento
