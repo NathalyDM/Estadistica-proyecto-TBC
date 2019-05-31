@@ -343,18 +343,18 @@ barplot(P,main="Gráfico N°19: Presupuesto invertido por departamento"
         ,ylim =c(0,20)
         ,cex.main=1)
 axis(1,at=1:25,labels = departamentos1,las=3,cex.axis=0.7)
-abline(h=5.125517,col="red",lwd=1)
+abline(h=4.676521,col="red",lwd=1)
 q1<-quantile(P)
 q2<-quantile(Morbilidad2)
 
 ```
 
-<p style="text-align: justify;">Luego, para identificar los departamentos de menor presupuesto en el Gráfico N°19, se seleccionaran los datos que se encontraban por debajo del primer cuartil de los datos, esto se logró utilizando el código `quantile(P)` que permite hallar los cuartiles de P. De esa forma se identifica el primer cuartil y se arma una tabla con los datos que tienen un presupuesto menor al del primer cuartil que es de **5125517 soles**</p> 
+<p style="text-align: justify;">Luego, para identificar los departamentos de menor presupuesto en el Gráfico N°19, se seleccionaran los datos que se encontraban por debajo del primer cuartil de los datos, esto se logró utilizando el código `quantile(P)` que permite hallar los cuartiles de P. De esa forma se identifica el primer cuartil y se arma una tabla con los datos que tienen un presupuesto menor al del primer cuartil que es de **4676521 soles**</p> 
 ```{r}
-dato6<-datos5$departamentos1[which(datos5$Presupuesto.orientado2<=5125517)]
-morb3<-datos5$Morbilidad2[which(datos5$Presupuesto.orientado2<=5125517)]
+dato6<-datos5$departamentos1[which(datos5$Presupuesto.orientado2<=4676521)]
+morb3<-datos5$Morbilidad2[which(datos5$Presupuesto.orientado2<=4676521)]
 ```
-<p style="text-align: justify;">A la vez, se determinó que los departamentos con media de presupuesto inferior al primer cuartil corresponde a los departamentos de **`r format (datos5$departamentos1[which(datos5$Presupuesto.orientado2<=5125517)])`**</p> 
+<p style="text-align: justify;">A la vez, se determinó que los departamentos con media de presupuesto inferior al primer cuartil corresponde a los departamentos de **`r format (datos5$departamentos1[which(datos5$Presupuesto.orientado2<=4676521)])`**</p> 
 
 Ahora en el Gráfico N°20, se observan los datos de morbilidad correspondientes a estos departamentos.
 ```{r}
